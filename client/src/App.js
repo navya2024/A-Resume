@@ -6,6 +6,7 @@ import Header from './components/navbar/Header';
 import About from './components/navbar/About';
 import Home from './components/navbar/Home';
 import Resume from './components/resume/Resume';
+import Contact from './components/navbar/contact';
 
 const useStyles = makeStyles({});
   
@@ -21,10 +22,9 @@ function App() {
 
         <Route exact path="/resumes" element={<Resumes/>}  />
         <Route exact path="/about" element={<About/>} />
-        {/* <Route exact path="/contact" render={<Contact />} /> */}
+        <Route exact path="/contact" element={<Contact/>} />
         <Route exact path="/*" element={<Navigate to ="/"/>} /> 
          <Route exact path="/resume" element={<Resume/>} /> 
-
         </Routes>
     
     </div>
