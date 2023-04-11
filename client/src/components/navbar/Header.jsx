@@ -8,12 +8,14 @@ import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import resume from "../../assets/resume.png";
+import { useNavigate } from "react-router-dom";
 
 
 function Header(props) {
   const href = props;
   const { window } = props;
   const { history } = props;
+  const navigate = useNavigate();
 
   //const navItems = ["Resumes", "Categories", "About" , "Contact", "Login"];
   const navItems = [
@@ -45,10 +47,7 @@ function Header(props) {
     },
   ];
 
-  const handleButtonClick = pageURL => {
-    history.push(pageURL);
-  };
-
+  
 
   const Logo = styled("img")(() => ({
     width: "13rem",
@@ -56,12 +55,10 @@ function Header(props) {
   }));
 
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
+  
   return (
     <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-      <AppBar
+      <AppBar elevation={0}
         component="nav"
         color="secondary"
         position="static"
@@ -74,7 +71,7 @@ function Header(props) {
           />
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button href={item.href} key={item.title} sx={{ color: "#fff" }} onClick={()=> handleButtonClick(href)} >
+              <Button Link={item.href} key={item.title} sx={{ color: "#fff" }} onClick={()=> navigate(item.href)} >
 
                 {item.title}
               </Button>
